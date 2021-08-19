@@ -92,7 +92,9 @@ read_csv(filename)
 
 print(objects[0].get_all())
 
-# def point_count(athlete):
+def point_count(score):
+    
+
     
 
 
