@@ -16,6 +16,7 @@ point_dict = {
     'javelin_throw':            [10.14, 7, 1.08],
     'fifteenhundred_meters':    [0.03768, 480, 1.85],
 }
+
 class Athlete:
     def __init__(self, name, hundred_meters, long_jump, shot_put, high_jump, fourhundred_meters, hurdles, discus_throw, pole_vault, javelin_throw, fifteenhundred_meters):
         self.name = name
@@ -90,11 +91,104 @@ def read_csv(filename):
 read_csv(filename)
 
 
-print(objects[0].get_all())
+print(objects[0].get_hundred_meters())
 
-def point_count(score):
-    
 
-    
+class Score_calculate():
+    def hundred_meters(score):
+        for k, v in point_dict.items():
+            if k == 'hundred_meters':
+                points = (v[0] * (v[1] - float(score)) ** v[2])
+                print(int(points))
+
+    def long_jump(score):
+        for k, v in point_dict.items():
+            if k == 'long_jump':
+                points = (v[0] * ((float(score) * 100) - v[1]) ** v[2])
+                print(int(points))
+
+
+
+    def shot_put(score):
+        for k, v in point_dict.items():
+            if k == 'shot_put':
+                points = (v[0] * (float(score) - v[1]) ** v[2])
+                print(round(points))
+
+
+
+    def high_jump(score):
+        for k, v in point_dict.items():
+            if k == 'high_jump':
+                points = (v[0] * ((float(score) * 100) - v[1]) ** v[2])
+                print(int(points))
+
+
+
+    def fourhundred_meters(score):
+        for k, v in point_dict.items():
+            if k == 'fourhundred_meters':
+                points = (v[0] * (v[1] - float(score)) ** v[2])
+                print(int(points))
+
+    def hurdles(score):
+        for k, v in point_dict.items():
+            if k == 'hurdles':
+                points = (v[0] * (v[1] - float(score)) ** v[2])
+                print(int(points))
+
+    def discus_throw(score):
+        for k, v in point_dict.items():
+            if k == 'discus_throw':
+                points = (v[0] * (float(score) - v[1]) ** v[2])
+                print(int(points))
+
+    def pole_vault(score):
+        for k, v in point_dict.items():
+            if k == 'pole_vault':
+                points = (v[0] * ((float(score) * 100) - v[1]) ** v[2])
+                print(int(points))
+
+    def javelin_throw(score):
+        for k, v in point_dict.items():
+            if k == 'javelin_throw':
+                points = (v[0] * (float(score) - v[1]) ** v[2])
+                print(int(points))
+
+    def fifteenhundred_meters(score):
+        for k, v in point_dict.items():
+            if k == 'fifteenhundred_meters':
+                points = (v[0] * (v[1] - float(score)) ** v[2])
+                print(int(points))
+
+Score_calculate.hundred_meters(objects[0].get_hundred_meters())
+
+print(objects[0].get_long_jump())
+Score_calculate.long_jump(objects[0].get_long_jump())
+
+print(objects[0].get_shot_put())
+Score_calculate.shot_put(objects[0].get_shot_put())
+
+print(objects[0].get_high_jump())
+Score_calculate.high_jump(objects[0].get_high_jump())
+
+print(objects[0].get_fourhundred_meters())
+Score_calculate.fourhundred_meters(objects[0].get_fourhundred_meters())
+
+print(objects[0].get_hurdles())
+Score_calculate.hurdles(objects[0].get_hurdles())
+
+print(objects[0].get_discus_throw())
+Score_calculate.discus_throw(objects[0].get_discus_throw())
+
+print(objects[0].get_pole_vault())
+Score_calculate.pole_vault(objects[0].get_pole_vault())
+
+print(objects[0].get_javelin_throw())
+Score_calculate.javelin_throw(objects[0].get_javelin_throw())
+
+print(objects[0].get_fifteenhundred_meters())
+Score_calculate.fifteenhundred_meters(objects[0].get_fifteenhundred_meters())
+
 
 
