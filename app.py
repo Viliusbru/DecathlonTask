@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
 import csv
 import os
-from main import read_csv, Athlete, Score_calculate, sorted_file
+from main import read_csv, Athlete, Score_calculate, sorted_json_file, res
 
 
 app = Flask(__name__)
@@ -25,7 +25,7 @@ def upload():
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
             file.save(file_path)
             read_csv(file_path)
-            print(sorted_file)
+            print(res)
       return redirect(url_for('index'))
 
 if __name__ == '__main__':

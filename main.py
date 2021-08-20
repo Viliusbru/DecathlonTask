@@ -1,4 +1,4 @@
-import csv
+import csv, json
 
 objects = []
 json_file = {}
@@ -100,9 +100,6 @@ def read_csv(filename):
 read_csv(filename)
 
 
-# print(objects[0].get_hundred_meters())
-
-
 class Score_calculate():
     def hundred_meters(score):
         A = point_dict['hundred_meters'][0]
@@ -188,14 +185,22 @@ for i in range(len(objects)):
     fifteenhundred_meters = Score_calculate.fifteenhundred_meters(objects[i].get_fifteenhundred_meters())
     total_score = hundred_meters + long_jump + shot_put + high_jump + fourhundred_meters + hurdles + discus_throw + pole_vault + javelin_throw + fifteenhundred_meters
     # print(f'total_score: {total_score}')
-    
-    for j in range(len(objects)):
-        json_file[objects[i].name] = total_score
-        sorted_file = sorted(json_file.items(), key=lambda x: x[1], reverse=True)
+    # for j in range(len(objects)):
+    json_file[objects[i].name] = total_score
+    sorted_json_file = sorted(json_file.items(), key=lambda x: x[1], reverse=True)
 
+res = []
+possition_counter = 1
+for i in range(len(sorted_json_file)) : 
+  res.append({possition_counter:{sorted_json_file[i][0]:sorted_json_file[i][1]}})
+  possition_counter+=1
+print(res)
+
+with open('output.json', 'w', encoding='utf-8') as f:
+    json.dump(res, f)
 
 # print(json_file)
-# print(sorted_file)
+# print(sorted_json_file)
 
 
 
