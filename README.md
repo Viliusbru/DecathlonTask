@@ -1,7 +1,7 @@
 # DecathlonTask
 Process uploaded file and convert to json
 
-python -m venv venv\n
+python -m venv venv/n
 venv\Script\activate\n
 pip install requirements.txt\n
 "python app.py" or "flask run"\n
