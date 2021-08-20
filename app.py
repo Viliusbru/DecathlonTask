@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
 import csv
 import os
-from main import jsonify, read_csv, Athlete
+from main import read_csv, Athlete, Score_calculate
 
 
 app = Flask(__name__)

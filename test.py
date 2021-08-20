@@ -1,3 +1,4 @@
+import json
 point_dict = {
     'hundred_meters':           [25.4347, 18, 1.81],
     'long_jump':                [0.14354, 220, 1.4],
@@ -29,3 +30,13 @@ def fifteenhundred_meters(score):
     print(int(points))
 
 fifteenhundred_meters(float(final))
+
+# JSON
+
+athletes = {
+    'name1': 'score1',
+    'name2': 'score2',
+    'name3': 'score3',
+}
+with open('test.json', 'w', encoding='utf-8') as f:
+    json.dump(athletes, f)
