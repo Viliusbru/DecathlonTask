@@ -193,8 +193,7 @@ def sort():
 
     position_counter = 1
     for i in range(len(sorted_json_file)): 
-        res.append(Athlete.final_score(sorted_json_file[i][0], sorted_json_file[i][1], position_counter))
-        # res.append({'position': position_counter, 'name': sorted_json_file[i][0], 'score': sorted_json_file[i][1]})
+        res.append({'position': position_counter, 'name': sorted_json_file[i][0], 'score': sorted_json_file[i][1]})
         position_counter+=1
     return sorted_json_file
 
