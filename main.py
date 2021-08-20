@@ -190,7 +190,8 @@ for i in range(len(objects)):
     # print(f'total_score: {total_score}')
     for j in range(len(objects)):
         json_file[objects[i].name] = total_score
-print(json_file)
+        sort = sorted(json_file.items(), key=lambda x: x[1])
+# print(json_file)
 
 
 
