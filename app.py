@@ -1,7 +1,7 @@
-from main import read_csv, create_download_file
+from main import read_csv, create_download_file, sort, sorted_json_file
 from flask import Flask, render_template, request, redirect, url_for, send_file
 from flask.helpers import flash
-import os
+import os, time
 
 
 app = Flask(__name__)
@@ -29,6 +29,8 @@ def upload():
                file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
                file.save(file_path)
                read_csv(file_path)
+               sort()
+               time.sleep(2)
                create_download_file()
             else:
                flash('wrong file format!')
