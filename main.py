@@ -96,70 +96,81 @@ print(objects[0].get_hundred_meters())
 
 class Score_calculate():
     def hundred_meters(score):
-        for k, v in point_dict.items():
-            if k == 'hundred_meters':
-                points = (v[0] * (v[1] - float(score)) ** v[2])
-                print(int(points))
+        A = point_dict['hundred_meters'][0]
+        B = point_dict['hundred_meters'][1]
+        C = point_dict['hundred_meters'][2]
+
+        points = (A * (B - float(score)) ** C)
+        print(int(points))
 
     def long_jump(score):
-        for k, v in point_dict.items():
-            if k == 'long_jump':
-                points = (v[0] * ((float(score) * 100) - v[1]) ** v[2])
-                print(int(points))
+        A = point_dict['long_jump'][0]
+        B = point_dict['long_jump'][1]
+        C = point_dict['long_jump'][2]
+        points = (A * ((float(score) * 100) - B) ** C)
+        print(int(points))
 
 
 
     def shot_put(score):
-        for k, v in point_dict.items():
-            if k == 'shot_put':
-                points = (v[0] * (float(score) - v[1]) ** v[2])
-                print(round(points))
+        A = point_dict['shot_put'][0]
+        B = point_dict['shot_put'][1]
+        C = point_dict['shot_put'][2]
+        points = (A * (float(score) - B) ** C)
+        print(round(points))
 
 
 
     def high_jump(score):
-        for k, v in point_dict.items():
-            if k == 'high_jump':
-                points = (v[0] * ((float(score) * 100) - v[1]) ** v[2])
-                print(int(points))
+        A = point_dict['shot_put'][0]
+        B = point_dict['shot_put'][1]
+        C = point_dict['shot_put'][2]
+        points = (A * ((float(score) * 100) - B) ** C)
+        print(int(points))
 
 
 
     def fourhundred_meters(score):
-        for k, v in point_dict.items():
-            if k == 'fourhundred_meters':
-                points = (v[0] * (v[1] - float(score)) ** v[2])
-                print(int(points))
+        A = point_dict['fourhundred_meters'][0]
+        B = point_dict['fourhundred_meters'][1]
+        C = point_dict['fourhundred_meters'][2]
+        points = (A * (B - float(score)) ** C)
+        print(int(points))
 
     def hurdles(score):
-        for k, v in point_dict.items():
-            if k == 'hurdles':
-                points = (v[0] * (v[1] - float(score)) ** v[2])
-                print(int(points))
+        A = point_dict['hurdles'][0]
+        B = point_dict['hurdles'][1]
+        C = point_dict['hurdles'][2]
+        points = (A * (B - float(score)) ** C)
+        print(int(points))
 
     def discus_throw(score):
-        for k, v in point_dict.items():
-            if k == 'discus_throw':
-                points = (v[0] * (float(score) - v[1]) ** v[2])
-                print(int(points))
+        A = point_dict['discus_throw'][0]
+        B = point_dict['discus_throw'][1]
+        C = point_dict['discus_throw'][2]
+        points = (A * (float(score) - B) ** C)
+        print(int(points))
 
     def pole_vault(score):
-        for k, v in point_dict.items():
-            if k == 'pole_vault':
-                points = (v[0] * ((float(score) * 100) - v[1]) ** v[2])
-                print(int(points))
+        A = point_dict['pole_vault'][0]
+        B = point_dict['pole_vault'][1]
+        C = point_dict['pole_vault'][2]
+        points = (A * ((float(score) * 100) - B) ** C)
+        print(int(points))
 
     def javelin_throw(score):
-        for k, v in point_dict.items():
-            if k == 'javelin_throw':
-                points = (v[0] * (float(score) - v[1]) ** v[2])
-                print(int(points))
+        A = point_dict['javelin_throw'][0]
+        B = point_dict['javelin_throw'][1]
+        C = point_dict['javelin_throw'][2]
+        points = (A * (float(score) - B) ** C)
+        print(int(points))
 
     def fifteenhundred_meters(score):
-        for k, v in point_dict.items():
-            if k == 'fifteenhundred_meters':
-                points = (v[0] * (v[1] - float(score)) ** v[2])
-                print(int(points))
+        A = point_dict['fifteenhundred_meters'][0]
+        B = point_dict['fifteenhundred_meters'][1]
+        C = point_dict['fifteenhundred_meters'][2]
+        points = (A * (B - float(score)) ** C)
+        print(int(points))
 
 Score_calculate.hundred_meters(objects[0].get_hundred_meters())
 
