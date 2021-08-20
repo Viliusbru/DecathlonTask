@@ -85,7 +85,11 @@ def read_csv(filename):
         discus_throw = data_list[i][7]
         pole_vault = data_list[i][8]
         javelin_throw = data_list[i][9]
-        fifteenhundred_meters = data_list[i][10]
+        fifteenhundred_meters = data_list[i][10]                                                            # converting to seconds
+        fifteenhundred_meters_split = fifteenhundred_meters.split('.')
+        fifteenhundred_meters_in_seconds = (int(fifteenhundred_meters_split[0]) * 60 + int(fifteenhundred_meters_split[1]))
+        fifteenhundred_meters = str(fifteenhundred_meters_in_seconds) + '.' + fifteenhundred_meters_split[2]
+        fifteenhundred_meters = float(fifteenhundred_meters)
         objects.append(Athlete(name, hundred_meters, long_jump, shot_put, high_jump, fourhundred_meters, hurdles, discus_throw, pole_vault, javelin_throw, fifteenhundred_meters)) 
 
 read_csv(filename)
@@ -110,16 +114,12 @@ class Score_calculate():
         points = (A * ((float(score) * 100) - B) ** C)
         print(int(points))
 
-
-
     def shot_put(score):
         A = point_dict['shot_put'][0]
         B = point_dict['shot_put'][1]
         C = point_dict['shot_put'][2]
         points = (A * (float(score) - B) ** C)
-        print(round(points))
-
-
+        print(int(points), 'asd')
 
     def high_jump(score):
         A = point_dict['shot_put'][0]
@@ -127,8 +127,6 @@ class Score_calculate():
         C = point_dict['shot_put'][2]
         points = (A * ((float(score) * 100) - B) ** C)
         print(int(points))
-
-
 
     def fourhundred_meters(score):
         A = point_dict['fourhundred_meters'][0]

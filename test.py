@@ -12,3 +12,20 @@ point_dict = {
 }
 A = point_dict['hundred_meters'][1]
 print(A)
+
+test = '5.25.72'
+
+minutes = test.split('.')
+counted = (int(minutes[0]) * 60 + int(minutes[1]))
+print(counted)
+final = str(counted) + '.' + minutes[2]
+print(float(final))
+
+def fifteenhundred_meters(score):
+    A = point_dict['fifteenhundred_meters'][0]
+    B = point_dict['fifteenhundred_meters'][1]
+    C = point_dict['fifteenhundred_meters'][2]
+    points = (A * (B - float(score)) ** C)
+    print(int(points))
+
+fifteenhundred_meters(float(final))
