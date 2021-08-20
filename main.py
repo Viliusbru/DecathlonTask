@@ -189,15 +189,15 @@ for i in range(len(objects)):
     json_file[objects[i].name] = total_score
     sorted_json_file = sorted(json_file.items(), key=lambda x: x[1], reverse=True)
 
-res = []
-possition_counter = 1
-for i in range(len(sorted_json_file)) : 
-  res.append({possition_counter:{sorted_json_file[i][0]:sorted_json_file[i][1]}})
-  possition_counter+=1
-print(res)
+def create_download_file():
+    res = []
+    possition_counter = 1
+    for i in range(len(sorted_json_file)): 
+        res.append({possition_counter:{sorted_json_file[i][0]:sorted_json_file[i][1]}})
+        possition_counter+=1
 
-with open('output.json', 'w', encoding='utf-8') as f:
-    json.dump(res, f)
+    with open('output.json', 'w', encoding='utf-8') as f:
+        json.dump(res, f)
 
 # print(json_file)
 # print(sorted_json_file)
