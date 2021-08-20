@@ -32,9 +32,10 @@ class Athlete:
         self.javelin_throw = javelin_throw
         self.fifteenhundred_meters = fifteenhundred_meters
 
-    def final_score(self, name, score):
+    def final_score(self, name, score, position):
         self.name = name
         self.score = score
+        self.position = position
 
     def get_name(self):
         return self.name
@@ -173,7 +174,7 @@ class Score_calculate():
 
 def sort():    
     for i in range(len(objects)):
-        # print(objects[i].name)
+        print(objects[i].name)
         hundred_meters = Score_calculate.hundred_meters(objects[i].get_hundred_meters())
         long_jump = Score_calculate.long_jump(objects[i].get_long_jump())
         shot_put = Score_calculate.shot_put(objects[i].get_shot_put())
@@ -190,10 +191,11 @@ def sort():
         json_file[objects[i].name] = total_score
     sorted_json_file = sorted(json_file.items(), key=lambda x: x[1], reverse=True)
 
-    possition_counter = 1
+    position_counter = 1
     for i in range(len(sorted_json_file)): 
-        res.append({possition_counter:{sorted_json_file[i][0]:sorted_json_file[i][1]}})
-        possition_counter+=1
+        res.append(Athlete.final_score(sorted_json_file[i][0], sorted_json_file[i][1], position_counter))
+        # res.append({'position': position_counter, 'name': sorted_json_file[i][0], 'score': sorted_json_file[i][1]})
+        position_counter+=1
     return sorted_json_file
 
 
