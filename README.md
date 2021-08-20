@@ -1,4 +1,4 @@
 # DecathlonTask
 Process uploaded file and convert to json
 
-![Alt Text](https://imgur.com/d5wijTd)
+![](https://giphy.com/gifs/nLPB4jE70aFyhfEFva)
