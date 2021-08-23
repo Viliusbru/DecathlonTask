@@ -190,7 +190,7 @@ def sort():
         # for j in range(len(objects)):
         json_file[objects[i].name] = total_score
     sorted_json_file = sorted(json_file.items(), key=lambda x: x[1], reverse=True)
-
+    
     position_counter = 1
     for i in range(len(sorted_json_file)): 
         res.append({'position': position_counter, 'name': sorted_json_file[i][0], 'score': sorted_json_file[i][1]})
