@@ -195,7 +195,6 @@ def sort():
     for i in range(len(sorted_json_file)): 
         res.append({'position': position_counter, 'name': sorted_json_file[i][0], 'score': sorted_json_file[i][1]})
         position_counter+=1
-    return sorted_json_file
 
 
 def create_download_file():

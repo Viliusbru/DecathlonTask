@@ -3,7 +3,7 @@ data = [
   { "position": 2, "name": "Coos Kwesi", "score": 3494 },
   { "position": 3, "name": "Lehi Poghos", "score": 3199 },
   { "position": 4, "name": "Severi Eileifr", "score": 3099 },
-  { "position": 5, "name": "Cum", "score": 3099 }
+  { "position": 4, "name": "Severi Eileifr2", "score": 3099 },
 ]
 
 for index, elem in enumerate(range(len(data))):
