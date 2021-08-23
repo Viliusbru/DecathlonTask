@@ -6,9 +6,18 @@ data = [
   { "position": 5, "name": "Cum", "score": 3099 }
 ]
 
-for index, elem in enumerate(range(len(data))):
-    if (index+1 < len(data) and index - 1 >= 0):
-        prev_value = data[index-1]['score']
-        value = data[index]['score']
-        next_value = data[index+1]['score']
-        print(prev_value, value, next_value)
+# for index, elem in enumerate(range(len(data))):
+#     if (index+1 < len(data) and index - 1 >= 0):
+#         prev_value = data[index-1]['score']
+#         value = data[index]['score']
+#         next_value = data[index+1]['score']
+#         print(prev_value, value, next_value)
+
+
+
+class Klass():
+  def create_obj(self, name):
+    self.name = name
+
+obj1 = Klass.create_obj('Kevin')
+print(obj1.name)
