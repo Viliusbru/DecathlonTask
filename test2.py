@@ -10,22 +10,29 @@ data = [
   { "position": 9, "name": "Lehasdasdi Poghos", "score": 3199 },
   { "position": 10, "name": "Severi Eileifr", "score": 3099 },
   { "position": 11, "name": "Seasdasdveri Eileifr", "score": 3099 },
-  { "position": 12, "name": "Severi asdasdasdEileifr", "score": 3098 }
+  { "position": 12, "name": "Severi asdasdasdEileifr", "score": 3098 },
+  { "position": 13, "name": "Severi asdasdasdEileifarsdasd", "score": 3098 },
 ]
 
 var = {
-  'position': [],
+  'position': '',
   'score': '',
 }
 
 for i in data:
+  first_pos = str(var['position'][0:1])
+  end_pos = str(var['position'][-1:])
   if i['score'] == var['score']:
     var['position'].append(i['position'])
+    index = data.index(i)
+    data[index]['position'] = new_position
   else:
-    new_position = str(var["position"][0:1]) + ' - ' + str(var["position"][-1:])
-    print(new_position)
-    var['score'] = i['score']
-    var['position'].clear()
-    var['position'] = [i['position']]
+    # print(end_pos)
+    if var['position'] != '':
+      new_position = first_pos + ' - ' + end_pos
+      print(new_position)
+      var['score'] = i['score']
+      var['position'] = ''
+      var['position'] = [i['position']]
 
-# print(data)
+# print(data[0]['position'])
