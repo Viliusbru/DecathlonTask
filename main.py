@@ -200,6 +200,7 @@ def sort():
 def create_download_file():
     with open('output.json', 'w', encoding='utf-8') as f:
         json.dump(res, f)
+        res.clear()
 
 
 
