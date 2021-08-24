@@ -16,7 +16,7 @@ data = [
 
 
 var = {
-  'position': '',
+  'position': [],
   'score': '',
 }
 
@@ -27,12 +27,11 @@ for i in data:
     data[index]['position'] = new_position
   else:
     first_pos = str(var['position'][0:1])
-    end_pos = str(var['position'][-1:])
+    end_pos = (var['position'][-1])
     # if var['position'] != '':
-    new_position = f'{first_pos} - {end_pos}'
+    new_position = f'{first_pos} - {end_pos +1}'
     print(new_position)
     var['score'] = i['score']
     var['position'] = ''
     var['position'] = [i['position']]
 
-# print(data[0]['position'])
