@@ -1,4 +1,5 @@
 import csv, json
+from operator import itemgetter
 
 res = []
 objects = []
@@ -31,11 +32,6 @@ class Athlete:
         self.pole_vault = pole_vault
         self.javelin_throw = javelin_throw
         self.fifteenhundred_meters = fifteenhundred_meters
-
-    def final_score(self, name, score, position):
-        self.name = name
-        self.score = score
-        self.position = position
 
     def get_name(self):
         return self.name
@@ -98,6 +94,12 @@ def read_csv(filename):
         fifteenhundred_meters = float(fifteenhundred_meters)
         objects.append(Athlete(name, hundred_meters, long_jump, shot_put, high_jump, fourhundred_meters, hurdles, discus_throw, pole_vault, javelin_throw, fifteenhundred_meters)) 
 
+
+class FinalClass():
+    def __init__(self, name, score, position):
+        self.name = name
+        self.score = score
+        self.position = position
 
 
 
@@ -189,17 +191,38 @@ def sort():
         # print(f'total_score: {total_score}')
         # for j in range(len(objects)):
         json_file[objects[i].name] = total_score
+<<<<<<< HEAD
     sorted_json_file = sorted(json_file.items(), key=lambda x: x[1], reverse=True)
     
-    position_counter = 1
-    for i in range(len(sorted_json_file)): 
-        res.append({'position': position_counter, 'name': sorted_json_file[i][0], 'score': sorted_json_file[i][1]})
-        position_counter+=1
+=======
+    sorted_json_file = sorted(json_file.items(), key=itemgetter(1), reverse=True)
+    print(sorted_json_file)
 
+>>>>>>> testing
+    position_counter = 1
+    for i in sorted_json_file: 
+        print(i)
+        # res.append({'position': position_counter, 'name': sorted_json_file[i][0], 'score': sorted_json_file[i][1]})
+        res.append(FinalClass(i[0], i[1], position_counter))
+        position_counter+=1
+<<<<<<< HEAD
+=======
+    return res
+
+
+>>>>>>> testing
+
+for i in res:
+    print(res.name, res.score, res.position)
 
 def create_download_file():
     with open('output.json', 'w', encoding='utf-8') as f:
+<<<<<<< HEAD
         json.dump(res, f)
+=======
+        json_string = json.dumps([ob.__dict__ for ob in res])
+        f.write(json_string)
+>>>>>>> testing
         res.clear()
 
 
