@@ -30,7 +30,7 @@ for i in data:
     end_pos = (var['position'][-1:])
     # if var['position'] != '':
     new_position = f'{first_pos} - {end_pos}'
-    print(new_position)
     var['score'] = i['score']
     var['position'] = ''
     var['position'] = [i['position']]
+    print(new_position)

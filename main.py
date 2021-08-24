@@ -176,7 +176,7 @@ class Score_calculate():
 
 def sort():    
     for i in range(len(objects)):
-        print(objects[i].name)
+        # print(objects[i].name)
         hundred_meters = Score_calculate.hundred_meters(objects[i].get_hundred_meters())
         long_jump = Score_calculate.long_jump(objects[i].get_long_jump())
         shot_put = Score_calculate.shot_put(objects[i].get_shot_put())
@@ -192,15 +192,31 @@ def sort():
         # for j in range(len(objects)):
         json_file[objects[i].name] = total_score
     sorted_json_file = sorted(json_file.items(), key=itemgetter(1), reverse=True)
-    print(sorted_json_file)
+    # print(sorted_json_file)
 
     position_counter = 1
     for i in sorted_json_file: 
-        print(i)
+        # print(i)
         # res.append({'position': position_counter, 'name': sorted_json_file[i][0], 'score': sorted_json_file[i][1]})
         res.append(FinalClass(position_counter, i[0], i[1]))
         position_counter+=1
-    return res
+
+    placeholder = {
+        'position': [],
+        'score': '',
+    }
+    for i in res:
+        # print(i.position)
+        if i.score != placeholder['score']:
+            first_pos = str(placeholder['position'][0:1])
+            end_pos = str(placeholder['position'][-1:])
+            new_position = f'{first_pos}-{end_pos}'
+            placeholder['score'] = i.score
+            placeholder['position'] = []
+            placeholder['position'].append(i.position)
+        else:
+            placeholder['position'].append(i.position)
+        i.position = new_position
 
 
 
