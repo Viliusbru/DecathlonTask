@@ -206,17 +206,24 @@ def sort():
         'score': '',
     }
     for i in res:
-        # print(i.position)
-        if i.score != placeholder['score']:
-            first_pos = str(placeholder['position'][0:1])
-            end_pos = str(placeholder['position'][-1:])
+        if i.score == placeholder['score']:
             new_position = f'{first_pos}-{end_pos}'
             placeholder['score'] = i.score
-            placeholder['position'] = []
             placeholder['position'].append(i.position)
+            # print(new_position, 'asd')
+            i.position = new_position
         else:
+            first_pos = str(placeholder['position'][0:1])
+            end_pos = str(placeholder['position'][-1:])
+            first_pos = first_pos.replace('[]', '')
+            end_pos = end_pos.replace('[]', '')
+            new_position = f'{first_pos}-{end_pos}'
+            print(new_position, 'asd')
+            placeholder['position'] = []
+            placeholder['score'] = i.score
             placeholder['position'].append(i.position)
-        i.position = new_position
+            i.position = new_position
+
 
 
 
