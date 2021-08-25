@@ -6,7 +6,7 @@ objects = []
 json_file = {}
 data_list = []
 sorted_json_file = []
-point_dict = {
+POINT_DICT = {
     "hundred_meters": [25.4347, 18, 1.81],
     "long_jump": [0.14354, 220, 1.4],
     "shot_put": [51.39, 1.5, 1.05],
@@ -151,72 +151,72 @@ class FinalClass:
 
 class Score_calculate:
     def hundred_meters(score):
-        A = point_dict["hundred_meters"][0]
-        B = point_dict["hundred_meters"][1]
-        C = point_dict["hundred_meters"][2]
+        A = POINT_DICT["hundred_meters"][0]
+        B = POINT_DICT["hundred_meters"][1]
+        C = POINT_DICT["hundred_meters"][2]
         points = A * (B - float(score)) ** C
         return int(points)
 
     def long_jump(score):
-        A = point_dict["long_jump"][0]
-        B = point_dict["long_jump"][1]
-        C = point_dict["long_jump"][2]
+        A = POINT_DICT["long_jump"][0]
+        B = POINT_DICT["long_jump"][1]
+        C = POINT_DICT["long_jump"][2]
         points = A * ((float(score) * 100) - B) ** C
         return int(points)
 
     def shot_put(score):
-        A = point_dict["shot_put"][0]
-        B = point_dict["shot_put"][1]
-        C = point_dict["shot_put"][2]
+        A = POINT_DICT["shot_put"][0]
+        B = POINT_DICT["shot_put"][1]
+        C = POINT_DICT["shot_put"][2]
         points = A * (float(score) - B) ** C
         return int(points)
 
     def high_jump(score):
-        A = point_dict["high_jump"][0]
-        B = point_dict["high_jump"][1]
-        C = point_dict["high_jump"][2]
+        A = POINT_DICT["high_jump"][0]
+        B = POINT_DICT["high_jump"][1]
+        C = POINT_DICT["high_jump"][2]
         points = A * (float(score) * 100 - B) ** C
         return int(points)
 
     def fourhundred_meters(score):
-        A = point_dict["fourhundred_meters"][0]
-        B = point_dict["fourhundred_meters"][1]
-        C = point_dict["fourhundred_meters"][2]
+        A = POINT_DICT["fourhundred_meters"][0]
+        B = POINT_DICT["fourhundred_meters"][1]
+        C = POINT_DICT["fourhundred_meters"][2]
         points = A * (B - float(score)) ** C
         return int(points)
 
     def hurdles(score):
-        A = point_dict["hurdles"][0]
-        B = point_dict["hurdles"][1]
-        C = point_dict["hurdles"][2]
+        A = POINT_DICT["hurdles"][0]
+        B = POINT_DICT["hurdles"][1]
+        C = POINT_DICT["hurdles"][2]
         points = A * (B - float(score)) ** C
         return int(points)
 
     def discus_throw(score):
-        A = point_dict["discus_throw"][0]
-        B = point_dict["discus_throw"][1]
-        C = point_dict["discus_throw"][2]
+        A = POINT_DICT["discus_throw"][0]
+        B = POINT_DICT["discus_throw"][1]
+        C = POINT_DICT["discus_throw"][2]
         points = A * (float(score) - B) ** C
         return int(points)
 
     def pole_vault(score):
-        A = point_dict["pole_vault"][0]
-        B = point_dict["pole_vault"][1]
-        C = point_dict["pole_vault"][2]
+        A = POINT_DICT["pole_vault"][0]
+        B = POINT_DICT["pole_vault"][1]
+        C = POINT_DICT["pole_vault"][2]
         points = A * ((float(score) * 100) - B) ** C
         return int(points)
 
     def javelin_throw(score):
-        A = point_dict["javelin_throw"][0]
-        B = point_dict["javelin_throw"][1]
-        C = point_dict["javelin_throw"][2]
+        A = POINT_DICT["javelin_throw"][0]
+        B = POINT_DICT["javelin_throw"][1]
+        C = POINT_DICT["javelin_throw"][2]
         points = A * (float(score) - B) ** C
         return int(points)
 
     def fifteenhundred_meters(score):
-        A = point_dict["fifteenhundred_meters"][0]
-        B = point_dict["fifteenhundred_meters"][1]
-        C = point_dict["fifteenhundred_meters"][2]
+        A = POINT_DICT["fifteenhundred_meters"][0]
+        B = POINT_DICT["fifteenhundred_meters"][1]
+        C = POINT_DICT["fifteenhundred_meters"][2]
         points = A * (B - float(score)) ** C
         return int(points)
 
