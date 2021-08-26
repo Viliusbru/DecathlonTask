@@ -264,29 +264,47 @@ def sort():
         position_counter += 1
 
     placeholder = {
-        "position": [],
-        "score": "",
+        "position": [res[0].position],
+        "score": res[0].score,
     }
     # TRYING TO FIX THE POSITIONS
     for i in res:
-        if i.score == placeholder["score"]:
-            new_position = f"{first_pos}-{end_pos}"
-            placeholder["score"] = i.score
-            placeholder["position"].append(i.position)
-            # print(new_position, 'asd')
-            i.position = new_position
+        first_pos = placeholder['position'][0]
+        end_pos = placeholder['position'][-1]
+        new_position = f'{first_pos} - {end_pos}'
+        if i.score == placeholder['score']:
+            placeholder['position'].append(i.position)
+            placeholder['score'] = i.score
+            # i.position = new_position
+            print(new_position)
         else:
-            first_pos = str(placeholder["position"][0:1])
-            end_pos = str(placeholder["position"][-1:])
-            first_pos = first_pos.replace("[]", "")
-            end_pos = end_pos.replace("[]", "")
-            new_position = f"{first_pos}-{end_pos}"
-            print(new_position, "asd")
-            placeholder["position"] = []
-            placeholder["score"] = i.score
-            placeholder["position"].append(i.position)
+            placeholder['score'] = i.score
+            placeholder['position'] = []
+            placeholder['position'] = [i.position]
             i.position = new_position
+            print(new_position)
 
+
+
+
+    # for i in res:
+    #     if i.score == placeholder["score"]:
+    #         first_pos = str(placeholder["position"][0:1])
+    #         end_pos = str(placeholder["position"][-1:])
+    #         new_position = f"{first_pos}-{end_pos}"
+    #         # placeholder["score"] = i.score
+    #         placeholder["position"].append(i.position)
+    #         # print(new_position, 'asd')
+    #         i.position = new_position
+    #     else:
+    #         first_pos = first_pos.replace("[]", "")
+    #         end_pos = end_pos.replace("[]", "")
+    #         new_position = f"{first_pos}-{end_pos}"
+    #         print(new_position, "asd")
+    #         placeholder["position"] = []
+    #         placeholder["score"] = i.score
+    #         placeholder["position"].append(i.position)
+    #         i.position = new_position
 
 for i in res:
     print(res.name, res.score, res.position)
