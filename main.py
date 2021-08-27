@@ -264,28 +264,55 @@ def sort():
         position_counter += 1
 
     placeholder = {
-        "position": [res[0].position],
-        "score": res[0].score,
+        "position": [],
+        "score": '',
     }
-    # TRYING TO FIX THE POSITIONS
-    for i in res:
-        first_pos = placeholder['position'][0]
-        end_pos = placeholder['position'][-1]
-        new_position = f'{first_pos} - {end_pos}'
-        if i.score == placeholder['score']:
-            placeholder['position'].append(i.position)
-            placeholder['score'] = i.score
-            # i.position = new_position
-            print(new_position)
+    # # TRYING TO FIX THE POSITIONS
+    # for i in res:
+    #     first_pos = placeholder['position'][0]
+    #     end_pos = placeholder['position'][-1]
+    #     new_position = f'{first_pos} - {end_pos}'
+    #     if i.score == placeholder['score']:
+    #         placeholder['position'].append(i.position)
+    #         placeholder['score'] = i.score
+    #         i.position = new_position
+    #         print('new_position')
+    #     else:
+    #         placeholder['score'] = i.score
+    #         placeholder['position'] = []
+    #         placeholder['position'] = [i.position]
+    #         i.position = new_position
+    #         print(new_position)
+# 
+    score = 0
+    distinct_scores = []
+    for item in res:
+        if score:
+            if score == item.score:
+                end = item.position
+            else:
+                placeholder['position'].append((start, end))
+                score = item.score,
+                start = end = item.position
+
+            if item.position == len(res):
+                placeholder['position'].append((start, end))
         else:
-            placeholder['score'] = i.score
-            placeholder['position'] = []
-            placeholder['position'] = [i.position]
-            i.position = new_position
-            print(new_position)
+            start, score = item.position, item.score
 
 
-
+    position = 0
+    for data in placeholder['position']:
+        print(data)
+        start, end = data
+        if start != end:
+            for position in range(start, end + 1):
+                print(position)
+                position = position - 1
+                print(f'{start}-{end} {res[position]["name"]} {res[position]["score"]}')
+        else:
+            position = start - 1
+            print(f'{start}-{end} {res[position]["name"]} {res[position]["score"]}')
 
     # for i in res:
     #     if i.score == placeholder["score"]:
@@ -306,8 +333,8 @@ def sort():
     #         placeholder["position"].append(i.position)
     #         i.position = new_position
 
-for i in res:
-    print(res.name, res.score, res.position)
+# for i in res:
+#     print(res.name, res.score, res.position)
 
 
 def create_download_file():
