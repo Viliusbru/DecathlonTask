@@ -293,7 +293,7 @@ def sort():
                 positions.append((start, end))
                 score = item.score,
                 start = end = item.position
-                
+
             if item.position == len(res):
                 positions.append((start, end))
         else:
@@ -302,7 +302,6 @@ def sort():
     position = 0
     for data in positions:
         start, end = data
-        print(data)
         if start != end:
             for position in range(start, end + 1):
                 position = position - 1
