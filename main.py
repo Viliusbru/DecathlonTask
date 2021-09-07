@@ -259,19 +259,8 @@ def sort():
         res.append(FinalClass(position_counter, i[0], i[1]))
         position_counter += 1
 
-def fix_positions():
     # FIXING THE POSITIONS
-    placeholder = {
-        'start':    0,
-        'end':      -1,
-        "score":    res[0].score,
-    }
-
-    for i in res:
-        if i.score == placeholder['score']:
-            placeholder['end'] += 1
-        else:
-            placeholder['score'] = i.score
+def else_func(placeholder):
             for j in range(placeholder['start'], placeholder['end'] + 1):
                 if placeholder['start'] == placeholder['end']:
                     placeholder['start'] += 1
@@ -281,16 +270,22 @@ def fix_positions():
                     res[j].position = new_position
             placeholder['end'] += 1
             placeholder['start'] = placeholder['end']
-    placeholder['score'] = i.score
-    for j in range(placeholder['start'], placeholder['end'] + 1):
-        if placeholder['start'] == placeholder['end']:
-            placeholder['start'] += 1
-            res[j].position = str(placeholder['start'])
+
+def fix_positions():
+    placeholder = {
+        'start':    0,
+        'end':      -1,
+        "score":    res[0].score,
+    }
+    for i in res:
+        if i.score == placeholder['score']:
+            placeholder['end'] += 1
         else:
-            new_position = f"{placeholder['start'] + 1}-{placeholder['end'] + 1}"
-            res[j].position = new_position
-    placeholder['end'] += 1
-    placeholder['start'] = placeholder['end']
+            placeholder['score'] = i.score
+            else_func(placeholder)
+    placeholder['score'] = i.score
+    else_func(placeholder)
+        
 
 
 
