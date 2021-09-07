@@ -265,56 +265,61 @@ def sort():
 
     # TRYING TO FIX THE POSITIONS
     placeholder = {
-        "position": [res[0].position],
-        "score": res[0].score,
+        'start':    0,
+        'end':      -1,
+        "score":    res[0].score,
     }
-    # for i in res:
-    #     first_pos = placeholder['position'][0]
-    #     end_pos = placeholder['position'][-1]
-    #     new_position = f'{first_pos} - {end_pos}'
-    #     if i.score == placeholder['score']:
-    #         placeholder['position'].append(i.position)
-    #         placeholder['score'] = i.score
-    #         i.position = new_position
+
+    for i in res:
+        if i.score == placeholder['score']:
+            placeholder['end'] += 1
+        else:
+            placeholder['score'] = i.score
+            print(placeholder['end'], 'pries')
+            for j in range(placeholder['start'], placeholder['end'] + 1):
+                new_position = f"{placeholder['start'] + 1}-{placeholder['end'] + 1}"
+                res[j].position = new_position
+            print(placeholder['end'], 'po')
+            placeholder['end'] += 1
+            placeholder['start'] = placeholder['end']
+
+
+                
+
+
+
+    # score = 0
+    # positions = []
+    # for item in res:
+    #     if score:
+    #         if score == item.score:
+    #             end = item.position
+    #         else:
+    #             positions.append((start, end))
+    #             score = item.score,
+    #             start = end = item.position
+
+    #         if item.position == len(res):
+    #             positions.append((start, end))
     #     else:
-    #         placeholder['score'] = i.score
-    #         placeholder['position'] = []
-    #         placeholder['position'] = [i.position]
-    #         i.position = new_position
-    #         positions = new_position
-    #         print(positions)
-    score = 0
-    positions = []
-    for item in res:
-        if score:
-            if score == item.score:
-                end = item.position
-            else:
-                positions.append((start, end))
-                score = item.score,
-                start = end = item.position
+    #         start, score = item.position, item.score
 
-            if item.position == len(res):
-                positions.append((start, end))
-        else:
-            start, score = item.position, item.score
-
-    position = 0
-    for data in positions:
-        start, end = data
-        if start != end:
-            for position in range(start, end + 1):
-                position = position - 1
-                res[position].position = f'{start}-{end}'
-                res[position].name = res[position].name
-                res[position].score = res[position].score
-                print(f'{start}-{end} {res[position].name} {res[position].score}')
-        else:
-            position = start - 1
-            res[position].position = f'{start}-{end}'
-            res[position].name = res[position].name
-            res[position].score = res[position].score
-            print(f'{start}-{end} {res[position].name} {res[position].score}')
+    # position = 0
+    # for data in positions:
+    #     start, end = data
+    #     if start != end:
+    #         for position in range(start, end + 1):
+    #             position = position - 1
+    #             res[position].position = f'{start}-{end}'
+    #             res[position].name = res[position].name
+    #             res[position].score = res[position].score
+    #             print(f'{start}-{end} {res[position].name} {res[position].score}')
+    #     else:
+    #         position = start - 1
+    #         res[position].position = f'{start}-{end}'
+    #         res[position].name = res[position].name
+    #         res[position].score = res[position].score
+    #         print(f'{start}-{end} {res[position].name} {res[position].score}')
 
 def create_download_file():
     with open("output.json", "w", encoding="utf-8") as f:
