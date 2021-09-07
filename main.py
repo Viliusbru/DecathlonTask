@@ -259,6 +259,7 @@ def sort():
         res.append(FinalClass(position_counter, i[0], i[1]))
         position_counter += 1
 
+def fix_positions():
     # FIXING THE POSITIONS
     placeholder = {
         'start':    0,
@@ -268,7 +269,6 @@ def sort():
 
     for i in res:
         if i.score == placeholder['score']:
-            i.position = str(placeholder['start'] + 1)
             placeholder['end'] += 1
         else:
             placeholder['score'] = i.score
@@ -281,7 +281,17 @@ def sort():
                     res[j].position = new_position
             placeholder['end'] += 1
             placeholder['start'] = placeholder['end']
-        i.position = str(placeholder['start'] + 1)
+    placeholder['score'] = i.score
+    for j in range(placeholder['start'], placeholder['end'] + 1):
+        if placeholder['start'] == placeholder['end']:
+            placeholder['start'] += 1
+            res[j].position = str(placeholder['start'])
+        else:
+            new_position = f"{placeholder['start'] + 1}-{placeholder['end'] + 1}"
+            res[j].position = new_position
+    placeholder['end'] += 1
+    placeholder['start'] = placeholder['end']
+
 
 
 def create_download_file():
